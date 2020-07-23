@@ -1,0 +1,53 @@
+@model ProductViewModel //yol
+@{
+    var popularClass=Model.Products.Count>2?"popular":""; //2 den fazla ürün varsa category rengini popular yap stylede tanımladım popuları o popularıda class olarak catgory başlığına yazdım
+    var products=Model.Products;//productsa a Model.Products u atadım artık aşağıda Model.Products yerine sadece produsts kullanabilirim
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+    <style> 
+        .popular{
+            color:green;
+            font-weight:700;
+        }
+
+    </style>
+</head>
+<body>
+    
+    Product/list
+<h1 class="popular">@Model.Category.Name</h1> 
+
+    @if(products.Count==0){
+     <p style="background-color:red"> Ürün yok</p>
+    }
+   else
+   {
+      <ul>
+        @foreach (var product in products)
+        {
+            @if(product.IsApproved){
+            <li>
+         <div>
+           <p>@product.Name</p>
+           <p>@product.Price</p>
+           <p>@product.Description</p>
+         </div>
+           </li>
+            }
+            else{
+                <p style="background-color:red"> Ürün Stışta Değil</p>
+            }
+         
+        }
+      </ul>
+    }
+ 
+    
+
+</body>
+</html>

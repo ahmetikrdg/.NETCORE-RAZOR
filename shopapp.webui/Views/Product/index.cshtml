@@ -1,0 +1,28 @@
+@model Product //product diyince artık geliyor çünkü view importa yazdık yolunu
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    Product/index
+    @* <h1>@ViewData["Category"]</h1>@*  string bilgi varsa dönüştürmeye gerek yok ama alttaki gibi nesne varsa cast etmemiz gerekiyor 
+    <h4>@(((Product)(ViewData["Product"])).Name)</h4> 
+    <h4>@(((Product)(ViewData["Product"])).Price)</h4> 
+    <h4>@(((Product)(ViewData["Product"])).Description)</h4>  
+    productun namespabcini viewde bir sayfa açarak yazdım o yüzden sadece product yazsak olur aksi taktirde proudt yazan yere tam yolu yazmak zorundaydım *@
+     
+     @* <h1>@ViewBag.Category</h1> viewbagle bu şekilde  
+       <h4>@ViewBag.Product.Name</h4> 
+       <h4>@ViewBag.Product.Price</h4> 
+       <h4>@ViewBag.Product.Description</h4>*@
+
+     <h1>@ViewBag.Category</h1>  
+       <h4>@Model.Name</h4> 
+       <h4>@Model.Price</h4> 
+       <h4>@Model.Description</h4>
+   
+</body>
+</html>
